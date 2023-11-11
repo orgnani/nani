@@ -3,7 +3,6 @@
 # SPDX-FileCopyrightText: (C) 2022 Jayesh Badwaik <j.badwaik@fz-juelich.de>
 # --------------------------------------------------------------------------------------------------
 
-find_package(Catch2 REQUIRED)
 
 add_library(libtestnani)
 set_target_properties(libtestnani PROPERTIES OUTPUT_NAME testnani)

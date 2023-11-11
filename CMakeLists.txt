@@ -5,6 +5,8 @@
 cmake_minimum_required(VERSION 3.26)
 project(nani VERSION 0.0.0.0)
 
+
+find_package(Catch2 REQUIRED)
 include(cmake/bs.cmake)
 
 add_library(libnani)
