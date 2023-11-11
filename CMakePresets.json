@@ -1,0 +1,91 @@
+{
+  "version": 4,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 26,
+    "patch": 0
+  },
+  "configurePresets" :
+  [
+    {
+      "name": "root",
+      "displayName": "Root Configure Preset"
+    },
+    {
+      "name": "strict.std",
+      "displayName": "Strict Standard Options",
+      "hidden": true,
+      "inherits": "root",
+      "cacheVariables": {
+        "CMAKE_CXX_STANDARD_REQUIRED": "ON",
+        "CMAKE_C_STANDARD_REQUIRED": "ON",
+        "CMAKE_CXX_EXTENSIONS": "OFF",
+        "CMAKE_C_EXTENSIONS": "OFF"
+      }
+    },
+    {
+      "name": "package",
+      "displayName": "Preset for Package",
+      "inherits": "strict.std",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "package.doc",
+      "displayName": "Preset for Package",
+      "inherits": "strict.std",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "BUILD_DOC": "On"
+      }
+    },
+    {
+      "name": "test",
+      "displayName": "Templates for Test",
+      "hidden": true,
+      "inherits": "strict.std",
+      "cacheVariables": {
+        "WARNING_AS_ERROR": "ON",
+        "BUILD_TESTING": "ON"
+      }
+    },
+    {
+      "name": "test.debug",
+      "displayName": "Debug",
+      "description": "Debug",
+      "inherits": "test",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "test.release",
+      "displayName": "Release",
+      "inherits": "test",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    }
+  ],
+  "buildPresets" :
+  [
+    {
+      "name": "root",
+      "configurePreset": "root"
+    }
+  ],
+  "testPresets" :
+  [
+    {
+      "name": "test",
+      "configurePreset": "root",
+      "output": {
+        "outputOnFailure": true
+      },
+      "execution": {
+        "noTestsAction": "error"
+      }
+    }
+  ]
+}
